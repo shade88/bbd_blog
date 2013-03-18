@@ -20,13 +20,13 @@
   <%= @user.is_admin %>
 </p>
 
-<% @user.posts.each do |post|%>
+<% @user.blog_messages.each do |post|%>
     <p>
       <b>Post <%= post.id %></b>
       <%= post.text %>
     </p>
    <% end %>
 
-<%= link_to 'Create post', :controller => :posts, :action => :new, :id=> @user.id %> |
+<%= link_to 'Create post', :controller => :blog_messages, :action => :new, :id=> @user.id %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

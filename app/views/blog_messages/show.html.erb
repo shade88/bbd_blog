@@ -2,19 +2,19 @@
 
 <p>
   <b>User:</b>
-  <%= @post.user_id %>
+  <%= @blog_message.user_id %>
 </p>
 
 <p>
   <b>Text:</b>
-  <%= @post.text %>
+  <%= @blog_message.text %>
 </p>
 
 <p>
   <b>Image:</b>
-  <%= @post.image %>
+  <%= @blog_message.image %>
 </p>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@blog_message) %> |
 <%= link_to 'Back', posts_path %>

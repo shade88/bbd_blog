@@ -1,9 +1,9 @@
 BbdBlog::Application.routes.draw do
-  resources :posts
+  resources :blog_messages
 
 
   resources :users    do
-    resources :posts
+    resources :blog_messages
   end
 
 

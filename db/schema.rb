@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318070655) do
+ActiveRecord::Schema.define(:version => 20130318112942) do
 
-  create_table "posts", :force => true do |t|
+  create_table "blog_messages", :force => true do |t|
     t.integer  "user_id"
     t.text     "text"
     t.binary   "image"
