@@ -24,8 +24,12 @@ class BlogMessagesController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    user=User.find(params[:id])
-    @blog_message = user.blog_messages.build
+    if       params[:id]
+      user=User.find(params[:id])
+      @blog_message = user.blog_messages.build
+    else
+      @blog_message = BlogMessage.new
+    end
 
     respond_to do |format|
       format.html # new.html.erb
