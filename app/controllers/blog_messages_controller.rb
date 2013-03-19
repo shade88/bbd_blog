@@ -25,7 +25,7 @@ class BlogMessagesController < ApplicationController
   # GET /posts/new.json
   def new
     if       params[:id]
-      user=User.find(params[:id])
+      user=User.find(params[:user_id])
       @blog_message = user.blog_messages.build
     else
       @blog_message = BlogMessage.new
