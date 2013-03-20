@@ -1,8 +1,9 @@
 class BlogMessagesController < ApplicationController
+
   # GET /posts
   # GET /posts.json
   def index
-    @blog_messages = BlogMessage.all
+    #@blog_messages = BlogMessage.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,7 @@ class BlogMessagesController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @blog_message = BlogMessage.find(params[:id])
+    #@blog_message = BlogMessage.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -39,7 +40,7 @@ class BlogMessagesController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @blog_message = BlogMessage.find(params[:id])
+    #@blog_message = BlogMessage.find(params[:id])
   end
 
   # POST /posts
@@ -61,7 +62,7 @@ class BlogMessagesController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @blog_message = BlogMessage.find(params[:id])
+    #@blog_message = BlogMessage.find(params[:id])
 
     respond_to do |format|
       if @blog_message.update_attributes(params[:blog_message])
@@ -77,7 +78,7 @@ class BlogMessagesController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @blog_message = BlogMessage.find(params[:id])
+    #@blog_message = BlogMessage.find(params[:id])
     @blog_message.destroy
 
     respond_to do |format|

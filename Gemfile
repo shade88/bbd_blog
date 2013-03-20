@@ -6,7 +6,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem "pg"
+  gem "sqlite3"
 end
 
 group :development, :test do
@@ -28,6 +28,7 @@ end
 gem 'jquery-rails'
 gem 'execjs'
 gem 'devise', '>= 2.0.0'
+gem "cancan"
 #gem 'therubyracer'
 
 # To use ActiveModel has_secure_password
