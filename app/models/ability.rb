@@ -15,8 +15,12 @@ class Ability
     elsif user.is? :author
       can :read, BlogMessage
       can :manage, BlogMessage, :user_id => user.id
+      can :manage, User, :id => user.id
+      #can :manage, Message, :sender => user
+      #can :read, Message, :recipient => user
     else
-      can :read, BlogMessage
+      #can :read, BlogMessage
+      can :manage, :all
     end
 
     #

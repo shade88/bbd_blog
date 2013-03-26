@@ -11,12 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320082138) do
+ActiveRecord::Schema.define(:version => 20130326042319) do
 
   create_table "blog_messages", :force => true do |t|
     t.integer "user_id"
     t.text "text"
     t.binary "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer "blog_message_id"
+    t.integer "user_id"
+    t.text "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.boolean "sender_deleted", :default => false
+    t.boolean "recipient_deleted", :default => false
+    t.string "subject"
+    t.text "body"
+    t.datetime "read_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

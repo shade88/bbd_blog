@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'devise', '>= 2.0.0'
 gem "cancan"
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 #gem 'therubyracer'
 
 # To use ActiveModel has_secure_password

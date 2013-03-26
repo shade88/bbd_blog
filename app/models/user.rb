@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :role
   #attr_accessible :email, :is_admin, :name, :password
   has_many :blog_messages
+  has_many :comments
+
+  has_private_messages
 
   def is?(role)
     self.role==role.to_s

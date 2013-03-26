@@ -1,8 +1,17 @@
 BbdBlog::Application.routes.draw do
+  resources :users do
+    resources :messages do
+      collection do
+        post :delete_selected
+      end
+    end
+  end
+
   devise_for :users
 
   #get 'sign_up', :to=>'devise/sessions#new'
   resources :blog_messages, :users
+  #resource :session, :only => [:new, :create, :destroy]
 
   #resources :users    do
   #  resources :blog_messages
