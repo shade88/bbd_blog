@@ -15,6 +15,26 @@
   <%= @blog_message.image %>
 </p>
 
+<ol>
+  Comments
+  <% @blog_message.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+  <% end if @blog_message.comments %>
+</ol>
 
-<%= link_to 'Edit', edit_blog_message_path(@blog_message) %> |
-<%= link_to 'Back', blog_messages_path %>
+<%= form_for @comment do |f| %>
+    <div class="field">
+      <%= f.text_area :text, :rows => 5 %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create comment" %>
+    </div>
+    <%= f.hidden_field :blog_message_id, value: @blog_message.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+<% end if @comment %>
+
+<% if user_signed_in? %>
+    <%= link_to 'Create comment', new_comment_path(user_id: current_user.id, blog_message_id: @blog_message.id) %>
+    <%= link_to 'Edit', edit_blog_message_path(@blog_message) %> |
+    <%= link_to 'Back', blog_messages_path %>
+<% end %>

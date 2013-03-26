@@ -15,6 +15,10 @@ class BlogMessagesController < ApplicationController
   # GET /posts/1.json
   def show
     #@blog_message = BlogMessage.find(params[:id])
+    if user_signed_in?
+      @comment=Comment.new
+      session[:blog_message_id]=@blog_message.id
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -45,4 +45,6 @@ gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/s
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+#gem 'debugger'
+#gem 'ruby-debug-ide'
+#gem 'ruby-debug-base19x'

@@ -17,7 +17,7 @@
     </p>
 <% end unless @user.blog_messages.empty? %>
 <p>
-  <%= link_to 'View my PM', user_messages_path(@user) %>
+  <!-- %= link_to 'View my PM', user_messages_path(@user) %>-->
 </p>
 
 <%= link_to 'Create post', new_blog_message_path(:user_id => @user.id) %> |

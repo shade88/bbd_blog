@@ -12,10 +12,11 @@
 
   <% @blog_messages.each do |post| %>
       <tr>
-        <td><%= User.find(post.user_id).email %></td>
-        <td><%= post.text %></td>
+        <td><%= post.user.email %></td>
+        <!-- User.find(post.user_id).email-->
+        <td><%= link_to post.text, blog_message_path(post) %></td>
         <td><%= post.image %></td>
-        <% if can? :manage, post #user_signed_in? && post.user==current_user   %>
+        <% if can? :manage, post #user_signed_in? && post.user==current_user    %>
             <td><%= link_to 'Show', post %></td>
             <td><%= link_to 'Edit', edit_blog_message_path(post) %></td>
             <td><%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %></td>
