@@ -17,9 +17,9 @@
 
 <ol>
   Comments
-  <% @blog_message.comments.each do |comment| %>
-      <li><%= comment.text %></li>
-  <% end if @blog_message.comments %>
+  <!--% @blog_message.comments.each do |comment| %>-->
+  <%= render :partial => "/comments/comment", :collection => @blog_message.comments if @blog_message.comments %>
+  <!--% end if @blog_message.comments %>-->
 </ol>
 
 <%= form_for @comment do |f| %>

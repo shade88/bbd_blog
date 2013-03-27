@@ -1,0 +1,11 @@
+<tr>
+  <td><%= blog_message.user.email %></td>
+  <!-- User.find(blog_message.user_id).email-->
+  <td><%= link_to blog_message.text, blog_message_path(blog_message) %></td>
+  <td><%= blog_message.image %></td>
+  <% if can? :manage, blog_message #user_signed_in? && blog_message.user==current_user     %>
+      <td><%= link_to 'Show', blog_message %></td>
+      <td><%= link_to 'Edit', edit_blog_message_path(blog_message) %></td>
+      <td><%= link_to 'Destroy', blog_message, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  <% end %>
+</tr>
