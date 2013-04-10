@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :blog_messages
   has_many :comments
 
-  has_private_messages
+  #has_private_messages
 
   def is?(role)
     self.role==role.to_s

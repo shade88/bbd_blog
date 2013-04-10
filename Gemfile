@@ -11,6 +11,20 @@ end
 
 group :development, :test do
   gem "sqlite3"
+
+  gem "rspec-rails"
+  gem 'factory_girl_rails'
+  gem "cucumber-rails", :require => false
+  gem "database_cleaner"
+  gem "webrat"
+
+end
+
+group :test do
+  gem 'faker'
+  #gem 'capybara'
+  #gem 'guard-rspec'
+  #gem 'launchy'
 end
 
 # Gems used only for assets and not required
@@ -29,7 +43,7 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'devise', '>= 2.0.0'
 gem "cancan"
-gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
+#gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 #gem 'therubyracer'
 
 # To use ActiveModel has_secure_password

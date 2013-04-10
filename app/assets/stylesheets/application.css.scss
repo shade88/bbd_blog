@@ -11,3 +11,34 @@
  *= require_self
  *= require_tree .
  */
+.header {
+  height: 40;
+  border-radius: 5px;
+  background-color: #ff8422;
+  color: #4f3000;
+  padding: 5px;
+  div {
+    a {
+      //color: #4f3000;
+      margin: 5px;
+      &:hover {
+        background-color: #ffb43d;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.user_status {
+  margin-left: 70%;
+  text-align: right;
+}
+
+.main_links {
+  float: left;
+}
+
+.footer {
+  @extend .header;
+  text-align: center;
+}

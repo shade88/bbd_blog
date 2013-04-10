@@ -10,7 +10,16 @@ BbdBlog::Application.routes.draw do
   devise_for :users
 
   #get 'sign_up', :to=>'devise/sessions#new'
-  resources :blog_messages, :comments, :users
+  resources :comments, :users, :blog_messages
+
+  resources :blog_messages do
+  #get :incr_rating, :on => :member
+  #get :decr_rating, :on => :member
+    member do
+      put :incr_rating
+      put :decr_rating
+    end
+  end
   #resource :session, :only => [:new, :create, :destroy]
 
   #resources :users    do

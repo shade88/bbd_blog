@@ -90,4 +90,15 @@ class BlogMessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def incr_rating
+    @blog_message.incr_rating
+    @blog_message.save
+    redirect_to params[:return_to]
+  end
+  def decr_rating
+    @blog_message.decr_rating
+    @blog_message.save
+    redirect_to params[:return_to]
+  end
 end

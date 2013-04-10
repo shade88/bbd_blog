@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326042319) do
+ActiveRecord::Schema.define(:version => 20130405113502) do
 
   create_table "blog_messages", :force => true do |t|
     t.integer  "user_id"
     t.text     "text"
     t.binary   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "rating",     :default => 0
   end
 
   create_table "comments", :force => true do |t|
@@ -39,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20130326042319) do
     t.datetime "read_at"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+  end
+
+  create_table "movies", :force => true do |t|
+    t.date     "showtime_date"
+    t.time     "showtime_time"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
