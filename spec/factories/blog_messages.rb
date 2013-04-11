@@ -6,15 +6,12 @@ FactoryGirl.define do
   #  text Faker::Lorem.paragraphs
   #end
 
-  factory :user, aliases: [:author, :commenter] do
-    email Faker::Internet.email
-    password '123456'
-    password_confirmation '123456'
-  end
+
 
   factory :blog_message do
-    user factory: :author
+    #user factory: :author
     text Faker::Lorem.paragraphs
+    rating 0
   end
 
   #factory :comment do
