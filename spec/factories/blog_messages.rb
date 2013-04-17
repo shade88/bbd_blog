@@ -14,6 +14,12 @@ FactoryGirl.define do
     rating 0
   end
 
+  factory :invalid_message do
+    #user factory: :author
+    text nil
+
+  end
+
   #factory :comment do
   #  commenter
   #  # instead of
