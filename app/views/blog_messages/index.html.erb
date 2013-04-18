@@ -1,20 +1,17 @@
-<h1>Listing posts</h1>
+<div class="page-header">
+  <h1>BBD Blog main <small>additional info...</small></h1>
+</div>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Text</th>
-    <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
 
   <!--% @blog_messages.each do |post| %>-->
   <%= render :partial => "/blog_messages/blog_message", :collection => @blog_messages %>
   <!--% end %>-->
-</table>
+
 
 <br/>
 
-<%= link_to 'New Post', new_blog_message_path %>
+<div class="post_handle">
+  <%= button_to 'New Post', {controller: 'blog_messages', action: 'new'}, class:'btn btn-primary',method: 'get' %>
+</div>
+

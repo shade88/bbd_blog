@@ -6,25 +6,25 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem "sqlite3"
+  gem "sqlite3", '1.3.7'
 end
 
 group :development, :test do
-  gem "sqlite3"
+  gem "sqlite3", '1.3.7'
 
-  gem "rspec-rails"
-  gem 'factory_girl_rails'
-  gem "cucumber-rails", :require => false
-  gem "database_cleaner"
-  gem "webrat"
+  gem "rspec-rails" , '2.13.0'
+  gem 'factory_girl_rails', '4.2.1'
+  gem "cucumber-rails", '1.3.1', :require => false
+  gem "database_cleaner", '0.9.1'
+  gem "webrat", '0.7.3'
 
 end
 
 group :test do
-  gem 'faker'
-  #gem 'capybara'
-  #gem 'guard-rspec'
-  #gem 'launchy'
+  gem 'faker', '1.1.2'
+  gem 'capybara', '2.0.3'
+  #gem 'guard-rspec', ''
+  #gem 'launchy', ''
 end
 
 # Gems used only for assets and not required
@@ -34,16 +34,16 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', '0.11.4', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'execjs'
-gem 'devise', '>= 2.0.0'
-gem "cancan"
-gem 'bootstrap-sass'
+gem 'jquery-rails', '2.2.1'
+gem 'execjs', '1.4.0'
+gem 'devise', '2.2.3'
+gem "cancan", '1.6.9'
+gem 'bootstrap-sass', '2.3.1.0'
 #gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 #gem 'therubyracer'
 

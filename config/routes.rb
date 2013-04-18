@@ -9,7 +9,13 @@ BbdBlog::Application.routes.draw do
 
   devise_for :users
 
-  #get 'sign_up', :to=>'devise/sessions#new'
+  #match '/sign_up'=>'devise/sessions#new'
+
+  devise_scope :user do
+    get "sign_up", :to => "devise/registrations#new"
+    get "sign_in", :to => "devise/sessions#new"
+  end
+
   resources :comments, :users, :blog_messages
 
   resources :blog_messages do

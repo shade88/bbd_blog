@@ -8,7 +8,9 @@
 </head>
 <body>
 <%= render :partial => "layouts/shared/header" %>
-<%= yield %>
+<div class="content">
+  <%= yield %>
+</div>
 <%= render :partial => "layouts/shared/footer" %>
 </body>
 </html>

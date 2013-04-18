@@ -1,28 +1,14 @@
-<div class="message_block">
-  <tr>
-    <td><%= blog_message.user.email %></td>
-    <!-- User.find(blog_message.user_id).email
-    %= button_to('incr', {:controller => "blog_messages", :action => :incr_rating, :id=>blog_message.id},{:method => :put}) %>
-    %= button_to 'decr', decr_rating_blog_message_path(blog_message) %>
 
-    %= form_for blog_message, :html => { :class => "button_to" } do |f|
-    f.hidden_field :return_to, :value => blog_messages_path
-    f.submit "Submit", :class => "link"
-  end%>
-    -->
-    <td><%= link_to blog_message.text, blog_message_path(blog_message) %></td>
-    <td><%= blog_message.image %></td>
-    <% if can? :manage, blog_message #user_signed_in? && blog_message.user==current_user      %>
-        <td><%= link_to 'Show', blog_message %></td>
-        <td><%= link_to 'Edit', edit_blog_message_path(blog_message) %></td>
-        <td><%= link_to 'Destroy', blog_message, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-    <% end %>
-    <td>
+
+<div class="row-fluid">
+  <div class="span2"><%= blog_message.user.email %></div>
+  <div class="span10">
+    <%= link_to blog_message.text, blog_message_path(blog_message) %>
+    <div class="rating">
       <%= button_to '-', decr_rating_blog_message_path(blog_message, return_to: blog_messages_path), :method => :put %>
-    </td>
-    <td>Rating: <%= blog_message.rating %></td>
-    <td>
+      Rating: <%= blog_message.rating %>
       <%= button_to('+', {:action => :incr_rating, :id => blog_message.id, :return_to => blog_messages_path}, {:method => :put}) %>
-    </td>
-  </tr>
+    </div>
+  </div>
 </div>
+<hr>
