@@ -22,7 +22,7 @@ describe "Authorizations" do
         fill_in "user_password", with: @user.password
         fill_in "user_password_confirmation", with: @user.password
         click_button "Sign up"
-        should have_content "errors"
+        page.should have_content "error" or  have_content "errors"
       }.to change { User.count }.by(0)
     end
   end
