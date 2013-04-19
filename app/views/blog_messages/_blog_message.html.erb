@@ -1,14 +1,14 @@
-
-
-<div class="row-fluid">
-  <div class="span2"><%= blog_message.user.email %></div>
-  <div class="span10">
-    <%= link_to blog_message.text, blog_message_path(blog_message) %>
-    <div class="rating">
-      <%= button_to '-', decr_rating_blog_message_path(blog_message, return_to: blog_messages_path), :method => :put %>
-      Rating: <%= blog_message.rating %>
-      <%= button_to('+', {:action => :incr_rating, :id => blog_message.id, :return_to => blog_messages_path}, {:method => :put}) %>
+<% if blog_message && blog_message.user %>
+    <div class="row-fluid">
+      <div class="span2"><%= blog_message.user.email %></div>
+      <div class="span10">
+        <%= link_to blog_message.text, blog_message_path(blog_message) %>
+        <div class="rating">
+          <%= button_to '-', decr_rating_blog_message_path(blog_message, return_to: blog_messages_path), :method => :put %>
+          Rating: <%= blog_message.rating %>
+          <%= button_to('+', {:action => :incr_rating, :id => blog_message.id, :return_to => blog_messages_path}, {:method => :put}) %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<hr>
+    <hr>
+<% end %>

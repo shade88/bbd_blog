@@ -10,7 +10,7 @@ describe "Authorizations" do
         fill_in "user_password", with: @user.password
         fill_in "user_password_confirmation", with: @user.password
         click_button "Sign up"
-        it { should redirect_to root_path }
+        page.should have_selector 'h1', text: 'BBD Blog main'
       }.to change { User.count }.by(1)
     end
 
@@ -22,7 +22,7 @@ describe "Authorizations" do
         fill_in "user_password", with: @user.password
         fill_in "user_password_confirmation", with: @user.password
         click_button "Sign up"
-        it { should has_content "invalid" }
+        page.should have_content "error" or  have_content "errors"
       }.to change { User.count }.by(0)
     end
   end
