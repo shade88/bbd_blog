@@ -7,18 +7,20 @@ FactoryGirl.define do
   #end
 
 
-
   factory :blog_message do
-    #user factory: :author
+    user factory: :user
     text Faker::Lorem.paragraphs
     rating 0
+
+    factory :author_blog_message do
+      user factory: :author
+    end
+
+    factory :invalid_message do
+      text nil
+    end
   end
 
-  factory :invalid_message do
-    #user factory: :author
-    text nil
-
-  end
 
   #factory :comment do
   #  commenter
