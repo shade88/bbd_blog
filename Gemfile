@@ -44,6 +44,7 @@ gem 'execjs', '1.4.0'
 gem 'devise', '2.2.3'
 gem "cancan", '1.6.9'
 gem 'bootstrap-sass', '2.3.1.0'
+gem "paperclip", "~> 3.0"
 #gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 #gem 'therubyracer'
 

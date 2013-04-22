@@ -1,13 +1,25 @@
 <% if blog_message && blog_message.user %>
     <div class="row-fluid">
-      <div class="span2"><%= blog_message.user.email %></div>
+      <div class="span2">
+        <%= image_tag blog_message.user.avatar.url(:medium) %>
+        <%= blog_message.user.email %>
+      </div>
       <div class="span10">
-        <%= link_to blog_message.text, blog_message_path(blog_message) %>
-        <div class="rating">
-          <%= button_to '-', decr_rating_blog_message_path(blog_message, return_to: blog_messages_path), :method => :put %>
-          Rating: <%= blog_message.rating %>
-          <%= button_to('+', {:action => :incr_rating, :id => blog_message.id, :return_to => blog_messages_path}, {:method => :put}) %>
+        <%= blog_message.text %>
+        <%= link_to 'read more...', blog_message_path(blog_message), class:'read_more pull-right btn btn-primary disabled' %>
+        <% if can? :manage, blog_message %>
+        <div class="">
+          <%= link_to 'edit', edit_blog_message_path(blog_message), class:'btn disabled' %>
+          <%= link_to 'delete', blog_message, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn disabled' %>
         </div>
+            <% end %>
+        <% if can? :manage_rating, blog_message %>
+            <div class="rating">
+              <%= button_to '-', decr_rating_blog_message_path(blog_message, return_to: blog_messages_path), :method => :put %>
+              Rating: <%= blog_message.rating %>
+              <%= button_to('+', {:action => :incr_rating, :id => blog_message.id, :return_to => blog_messages_path}, {:method => :put}) %>
+            </div>
+        <% end %>
       </div>
     </div>
     <hr>

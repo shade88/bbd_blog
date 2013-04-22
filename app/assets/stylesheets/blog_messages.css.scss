@@ -10,6 +10,13 @@
 
 }    */
 .rating {
+  clear: right;
   text-align: right;
+  display: block;
+  //margin-top: 15px;
   *{display: inline;}
+}
+.read_more{
+  margin-top: 15px;
+  display: block;
 }
