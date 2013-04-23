@@ -12,6 +12,6 @@
 <br/>
 
 <div class="post_handle">
-  <%= button_to 'New Post', {controller: 'blog_messages', action: 'new'}, class:'btn btn-primary',method: 'get' %>
+  <%= button_to 'New Post', {controller: 'blog_messages', action: 'new'}, class:'btn btn-primary',method: 'get'  if can? :create, BlogMessage%>
 </div>
 

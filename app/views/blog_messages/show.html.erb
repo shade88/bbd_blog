@@ -30,11 +30,5 @@
       <%= f.submit "Create comment" %>
     </div>
     <%= f.hidden_field :blog_message_id, value: @blog_message.id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_id, value:(current_user ? current_user.id : 1)  %>
 <% end if @comment %>
-
-<% if user_signed_in? %>
-    <%= link_to 'Create comment', new_comment_path(user_id: current_user.id, blog_message_id: @blog_message.id) %>
-    <%= link_to 'Edit', edit_blog_message_path(@blog_message) %> |
-    <%= link_to 'Back', blog_messages_path %>
-<% end %>

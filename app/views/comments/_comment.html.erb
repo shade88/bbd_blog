@@ -1,1 +1,7 @@
-<li><%= link_to comment.text, edit_comment_path %></li>
+<li>
+  <%= if can? :edit, comment
+          best_in_place comment, :text
+        else
+          comment.text
+        end%>
+</li>
