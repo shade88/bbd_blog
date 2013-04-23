@@ -15,9 +15,10 @@ describe "Blog messages" do
     end
 
     context "As author" do
-      before(:all){sign_in_user(:author)}
+      before(:all){ sign_in_user(author)}
+      let!(:author) { FactoryGirl.create(:author) }
       let!(:blog_message) { FactoryGirl.create(:blog_message) }
-      let!(:author_blog_message) { FactoryGirl.create(:author_blog_message) }
+      let!(:author_blog_message) { author.blog_messages.create(text:Faker::Lorem.sentences) }
       context "Other message" do
         it { should have_content blog_message.text[100] }
         it { should_not have_link 'edit', edit_blog_message_path(blog_message) }
@@ -31,7 +32,7 @@ describe "Blog messages" do
     end
 
     context "As admin" do
-      before(:all){sign_in_user(:admin)}
+      before(:all){sign_in_user(FactoryGirl.create(:admin))}
       let!(:blog_message) { FactoryGirl.create(:blog_message) }
       let!(:author_blog_message) { FactoryGirl.create(:author_blog_message) }
       context "Other message" do

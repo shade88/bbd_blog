@@ -7,16 +7,16 @@ BbdBlog::Application.routes.draw do
   #  end
   #end
 
-  devise_for :users
+  devise_for :users  #for devise authorisation paths
 
   #match '/sign_up'=>'devise/sessions#new'
 
   devise_scope :user do
-    get "sign_up", :to => "devise/registrations#new"
-    get "sign_in", :to => "devise/sessions#new"
+    get "sign_up", :to => "devise/registrations#new"   #for /sign_up and  #sign_up_path
+    get "sign_in", :to => "devise/sessions#new"        #for /sign_in and  sign_in_path
   end
 
-  resources :comments, :users, :blog_messages
+  resources :comments, :users, :blog_messages    #for /user/id/edit /user/new etc. paths
 
   resources :blog_messages do
   #get :incr_rating, :on => :member
